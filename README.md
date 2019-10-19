@@ -1,5 +1,7 @@
 # Blantons Finder
 
+[![Build status](https://github.com/iansu/blantons-finder/workflows/CI/badge.svg)](https://github.com/iansu/blantons-finder/actions)
+
 Find all the Blantons in BC
 
 ## Usage
