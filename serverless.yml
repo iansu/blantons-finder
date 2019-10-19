@@ -1,0 +1,35 @@
+service: blantons-finder
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 8000
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: production
+  memorySize: 128
+  region: us-west-2
+  environment:
+    NODE_ENV: 'production'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - SES:SendEmail
+      Resource: '*'
+
+package:
+  include:
+    - config.*.js
+  exclude:
+    - node_modules/.bin/**
+    - config.local.*
+
+functions:
+  index:
+    handler: index.handler
+    events:
+      - schedule: cron(0 14 * * ? *)

@@ -1,0 +1,6 @@
+.build
+.serverless
+node_modules
+
+*.local.js
+*.log
